@@ -1,0 +1,673 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background-color: #111;
+  color: white;
+  padding: 5px 10px; /* Mengurangi padding */
+  position: fixed; /* Menetapkan posisi tetap */
+  top: 0; /* Menempatkan navbar di bagian atas */
+  width: 100%; /* Membuat navbar melebar sesuai lebar halaman */
+  z-index: 1000; /* Mengatur z-index agar navbar di atas elemen lainnya */
+}
+
+.navTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px; /* Mengurangi padding */
+}
+
+.logo {
+  width: 150px; /* Sesuaikan ukuran logo sesuai kebutuhan */
+  height: auto; /* Menjaga rasio aspek */
+  margin-right: 10px; /* Menambah jarak antara logo dan elemen lainnya jika diperlukan */
+  border-radius: 20px; /* Mengatur sudut gambar agar tidak lancip */
+}
+
+.limitedOffer {
+  font-size: 20px;
+  border-bottom: 2px solid green;
+  cursor: pointer;
+}
+
+.navBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuItem {
+  margin-right: 50px;
+  cursor: pointer;
+  color: lightgray;
+  font-weight: 400;
+}
+
+.slider {
+  background: url("https://images.unsplash.com/photo-1508717272800-9fff97da7e8f?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 200%,
+    0 100%
+  ); /* Ubah 85% menjadi 90% atau lebih sesuai kebutuhan */
+  overflow: hidden;
+}
+
+.sliderWrapper {
+  display: flex;
+  width: 1020vw; /* Lebar ditambah sedikit */
+  transition: all 1.5s ease-in-out;
+}
+
+.sliderItem {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sliderBg {
+  width: 750px;
+  height: 800px; /* Tambah tinggi untuk memperlebar ke bawah */
+  border-radius: 50%; /* Tetap, untuk menjaga bentuk */
+  position: absolute;
+}
+
+.sliderImg {
+  z-index: 1;
+}
+
+.sliderTitle {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+}
+
+.sliderPrice {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+  color: black; /* Ubah warna teks menjadi hitam */
+  z-index: 1;
+  border: none; /* Hapus garis tepi */
+}
+
+.buyButton {
+  position: absolute;
+  top: 80%; /* Geser sedikit ke bawah */
+  right: 10%;
+  font-size: 30px;
+  font-weight: 900;
+  color: white;
+  border: 1px solid gray;
+  background-color: black;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.buyButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.sliderItem:nth-child(1) .sliderBg {
+  background-color: #369e62;
+}
+.sliderItem:nth-child(2) .sliderBg {
+  background-color: rebeccapurple;
+}
+.sliderItem:nth-child(3) .sliderBg {
+  background-color: teal;
+}
+.sliderItem:nth-child(4) .sliderBg {
+  background-color: cornflowerblue;
+}
+.sliderItem:nth-child(5) .sliderBg {
+  background-color: rgb(124, 115, 80);
+}
+
+.sliderItem:nth-child(1) .sliderPrice {
+  color: #000000;
+}
+.sliderItem:nth-child(2) .sliderPrice {
+  color: white;
+}
+.sliderItem:nth-child(3) .sliderPrice {
+  color: teal;
+}
+.sliderItem:nth-child(4) .sliderPrice {
+  color: cornflowerblue;
+}
+.sliderItem:nth-child(5) .sliderPrice {
+  color: cornsilk;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featureIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.featureTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 20px;
+}
+
+.featureDesc {
+  color: gray;
+  width: 50%;
+  height: 100px;
+}
+
+.product {
+  height: 100vh;
+  background-color: whitesmoke;
+  position: relative;
+  clip-path: none;
+}
+
+.payment {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 10px 50px;
+  display: none;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+}
+
+.payTitle {
+  font-size: 20px;
+  color: lightgray;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.payInput {
+  padding: 10px;
+  margin: 10px 0px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.payInput::placeholder {
+  color: rgb(163, 163, 163);
+}
+
+.cardIcons {
+  display: flex;
+}
+
+.cardIcon {
+  margin-right: 10px;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sm {
+  width: 30%;
+}
+
+.payButton {
+  position: absolute;
+  height: 40px;
+  bottom: -40;
+  width: 100%;
+  left: 0;
+  -webkit-box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.3);
+  background-color: #369e62;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: gray;
+  color: white;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.productImg {
+  width: 40%;
+}
+
+.productDetails {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 40%;
+  padding: 50px;
+}
+
+.productTitle {
+  font-size: 75px;
+  font-weight: 900;
+}
+
+.productDesc {
+  font-style: 24px;
+  color: gray;
+}
+
+.colors,
+.sizes {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.size {
+  padding: 5px 20px;
+  border: 1px solid black;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.productButton {
+  float: right;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.productButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.gallery {
+  padding: 50px;
+  display: flex;
+}
+
+.galleryItem {
+  flex: 1;
+  padding: 50px;
+}
+
+.galleryImg {
+  width: 100%;
+}
+
+.newSeason {
+  display: flex;
+}
+
+.nsItem {
+  flex: 1;
+  background-color: rgb(
+    109,
+    122,
+    109
+  ); /* Ganti warna latar belakang menjadi hijau */
+  color: white; /* Tetap putih untuk teks */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nsImg {
+  width: 100%;
+  height: 500px;
+}
+
+.nsTitle {
+  font-size: 40px;
+}
+
+.nsButton {
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: rgb(96, 247, 96); /* Ganti warna tombol menjadi hijau */
+  color: white; /* Tetap putih untuk teks pada tombol */
+  border: none; /* Menghilangkan garis batas tombol jika ada */
+}
+
+footer {
+  display: flex;
+}
+
+.footerLeft {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.fMenuTitle {
+  font-size: 16px;
+}
+
+.fList {
+  padding: 0;
+  list-style: none;
+}
+
+.fListItem {
+  margin-bottom: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+.footerRight {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fInput {
+  padding: 5px;
+}
+
+.fButton {
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+
+.fIcons {
+  display: flex;
+}
+
+.fIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+copyright {
+  font-weight: 300;
+  font-size: 14px;
+  align-self: flex-start; /* Memastikan copyright sejajar dengan bagian atas footer */
+  margin-left: auto; /* Menggeser copyright ke kanan */
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    padding: 20px;
+  }
+
+  .navBottom {
+    flex-wrap: wrap;
+  }
+
+  .menuItem {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .slider {
+    clip-path: none;
+  }
+
+  .sliderImg {
+    width: 90%;
+  }
+
+  .sliderBg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sliderTitle {
+    display: none;
+  }
+
+  .sliderPrice {
+    top: unset;
+    bottom: -50;
+    left: 0;
+    background-color: lightgrey;
+  }
+
+  .buyButton {
+    right: 0;
+    top: 0;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+
+  .product {
+    clip-path: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .productImg {
+    width: 80%;
+  }
+
+  .productDetails {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    top: 0;
+  }
+
+  .productTitle {
+    font-size: 50px;
+    margin: 0;
+  }
+
+  .gallery {
+    display: none;
+  }
+
+  .newSeason {
+    flex-direction: column;
+  }
+
+  .nsItem:nth-child(2) {
+    padding: 50px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerLeft {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .footerRight {
+    padding: 20px;
+    width: 90%;
+    align-items: center;
+    background-color: whitesmoke;
+  }
+  /* Default styles for larger screens */
+  body {
+    font-family: "Lato", sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav {
+    background-color: #111;
+    color: white;
+    padding: 5px 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .navTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Styles for laptops and desktops */
+  @media screen and (min-width: 1024px) {
+    nav {
+      padding: 10px 20px; /* padding lebih besar di layar besar */
+    }
+
+    .menuItem {
+      margin-right: 50px;
+      font-size: 18px; /* font lebih besar */
+    }
+
+    .slider {
+      clip-path: polygon(0 0, 100% 0, 100% 200%, 0 100%);
+    }
+  }
+
+  /* Styles for iPads and tablets */
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
+    nav {
+      padding: 10px; /* padding sedikit lebih kecil */
+    }
+
+    .menuItem {
+      margin: 10px; /* margin lebih kecil */
+      font-size: 16px; /* font sedikit lebih kecil */
+    }
+
+    .slider {
+      clip-path: polygon(0 0, 100% 0, 100% 200%, 0 100%);
+    }
+
+    .nsItem {
+      padding: 20px; /* Padding sedikit lebih kecil */
+    }
+  }
+
+  /* Styles for mobile devices (Android, iPhone) */
+  @media screen and (max-width: 767px) {
+    nav {
+      padding: 5px; /* Padding minimal untuk mobile */
+    }
+
+    .menuItem {
+      margin: 5px; /* Margin lebih kecil untuk mobile */
+      font-size: 14px; /* Font lebih kecil */
+    }
+
+    .slider {
+      clip-path: none; /* Menghapus clip-path di mobile */
+    }
+
+    .productImg {
+      width: 90%; /* Memperlebar gambar produk */
+    }
+
+    .productTitle {
+      font-size: 30px; /* Font lebih kecil di mobile */
+    }
+
+    .gallery {
+      display: block; /* Tampilkan galeri di mobile */
+      flex-direction: column; /* Kolom untuk galeri */
+    }
+
+    .nsItem {
+      height: 300px; /* Menurunkan tinggi untuk item */
+    }
+
+    .newSeason {
+      flex-direction: column; /* Vertical layout untuk mobile */
+    }
+  }
+
+  /* Styles for iPhone 5/SE */
+  @media screen and (max-width: 480px) {
+    .menuItem {
+      font-size: 12px; /* Font lebih kecil untuk iPhone kecil */
+    }
+
+    .sliderTitle {
+      font-size: 24px; /* Ukuran font judul lebih kecil */
+    }
+
+    .buyButton {
+      font-size: 16px; /* Ukuran font tombol lebih kecil */
+    }
+
+    .productDesc {
+      font-size: 16px; /* Ukuran font deskripsi lebih kecil */
+    }
+  }
+  .galleryImg {
+    width: 100%; /* Gambar akan menyesuaikan lebar kontainer */
+    height: auto; /* Menjaga rasio aspek gambar */
+  }
+
+  .nsImg {
+    max-width: 100%; /* Gambar tidak akan melewati lebar kontainer */
+    height: auto; /* Menjaga rasio aspek gambar */
+  }
+}
